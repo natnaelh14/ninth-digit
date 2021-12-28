@@ -1,51 +1,48 @@
 import './App.css';
 import NumberBox from './components/NumberBox/NumberBox';
+import Header from './components/Header/Header';
+import SearchBox from './components/SearchBox/SearchBox';
 
 const NumberList = [
   {
-    name: 'Abebe Bekele',
-    email: 'abebe.bekele@gmail.com',
+    number: '1',
   },
   {
-    name: 'Abebe Bekele',
-    email: 'abebe.bekele@gmail.com',
+    number: '2',
   },
   {
-    name: 'Abebe Bekele',
-    email: 'abebe.bekele@gmail.com',
+    number: '3',
   },
   {
-    name: 'Abebe Bekele',
-    email: 'abebe.bekele@gmail.com',
+    number: '4',
   },
   {
-    name: 'Abebe Bekele',
-    email: 'abebe.bekele@gmail.com',
+    number: '5',
   },
   {
-    name: 'Abebe Bekele',
-    email: 'abebe.bekele@gmail.com',
+    number: '6',
   },
   {
-    name: 'Abebe Bekele',
-    email: 'abebe.bekele@gmail.com',
+    number: '7',
   },
   {
-    name: 'Abebe Bekele',
-    email: 'abebe.bekele@gmail.com',
+    number: '8',
   },
   {
-    name: 'Abebe Bekele',
-    email: 'abebe.bekele@gmail.com',
+    number: '9',
   },
 ];
 function App() {
   return (
-    <div className='App'>
-      {NumberList.map((box, i) => {
-         return <NumberBox name={box.name} email={box.email} key={i} />
-      })}
-    </div>
+    <>
+      <Header />
+      <div className='App'>
+        {NumberList.map((box, i) => {
+          return <NumberBox number={box.number} key={i} />;
+        })}
+      </div>
+      <SearchBox />
+    </>
   );
 }
 
