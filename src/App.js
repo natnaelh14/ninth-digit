@@ -1,23 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import NumberBox from './components/NumberBox/NumberBox';
 
+const NumberList = [
+  {
+    name: 'Abebe Bekele',
+    email: 'abebe.bekele@gmail.com',
+  },
+  {
+    name: 'Abebe Bekele',
+    email: 'abebe.bekele@gmail.com',
+  },
+  {
+    name: 'Abebe Bekele',
+    email: 'abebe.bekele@gmail.com',
+  },
+  {
+    name: 'Abebe Bekele',
+    email: 'abebe.bekele@gmail.com',
+  },
+  {
+    name: 'Abebe Bekele',
+    email: 'abebe.bekele@gmail.com',
+  },
+  {
+    name: 'Abebe Bekele',
+    email: 'abebe.bekele@gmail.com',
+  },
+  {
+    name: 'Abebe Bekele',
+    email: 'abebe.bekele@gmail.com',
+  },
+  {
+    name: 'Abebe Bekele',
+    email: 'abebe.bekele@gmail.com',
+  },
+  {
+    name: 'Abebe Bekele',
+    email: 'abebe.bekele@gmail.com',
+  },
+];
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      {NumberList.map((box, i) => {
+         return <NumberBox name={box.name} email={box.email} key={i} />
+      })}
     </div>
   );
 }
