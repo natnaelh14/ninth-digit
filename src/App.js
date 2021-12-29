@@ -1,36 +1,51 @@
 import React, { useState } from 'react';
 import './App.css';
-import NumberBox from './components/NumberBox/NumberBox';
+import Card from './components/Card/Card';
 import Header from './components/Header/Header';
 import SearchBox from './components/SearchBox/SearchBox';
+import { sortableContainer, sortableElement } from 'react-sortable-hoc';
+import { arrayMoveImmutable } from 'array-move';
 
-const NumberList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-function App() {
-  const [dragNums, setDragNums] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-  const [searchNumber, setSearchNumber] = useState(NumberList);
+const resetNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const App = () => {
+  const [dragNums, setDragNums] = useState(resetNumber);
+  const [searchNumber, setSearchNumber] = useState(resetNumber);
   const handleSubmit = (e) => {
-      setSearchNumber(dragNums);
+    setSearchNumber(dragNums);
   };
   const handleReset = (e) => {
-    setSearchNumber(NumberList);
+    setSearchNumber(resetNumber);
   };
-
+  const SortableGifsContainer = sortableContainer(({ children }) => (
+    <div className='gifs'>{children}</div>
+  ));
+  const SortableGif = sortableElement(({ number }) => (
+    <Card key={number} number={number} />
+  ));
+  const onSortEnd = ({ oldIndex, newIndex }) =>
+  setSearchNumber(arrayMoveImmutable(searchNumber, oldIndex, newIndex));
   return (
     <>
       <Header />
       <div className='App'>
-        {searchNumber.map((number) => {
-          return <NumberBox number={number} key={number} />;
-        })}
+        <SortableGifsContainer
+          axis='xy'
+          onSortEnd={onSortEnd}
+          onSortStart={(_, event) => event.preventDefault()}
+        >
+          {searchNumber.map((num, i) => (
+            <SortableGif index={i} key={i} number={num} />
+          ))}
+        </SortableGifsContainer>
+        <SearchBox
+          handleSubmit={handleSubmit}
+          handleReset={handleReset}
+          setDragNums={setDragNums}
+          dragNums={dragNums}
+        />
       </div>
-      <SearchBox
-        handleSubmit={handleSubmit}
-        handleReset={handleReset}
-        setDragNums={setDragNums}
-        dragNums={dragNums}
-      />
     </>
   );
-}
+};
 
 export default App;

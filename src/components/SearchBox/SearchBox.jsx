@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Number from '../Number/Number';
 import { sortableContainer, sortableElement } from 'react-sortable-hoc';
 import { arrayMoveImmutable } from 'array-move';
