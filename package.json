@@ -1,8 +1,7 @@
 {
   "name": "ninth-digth",
-  "homepage": "http://natnaelh14.github.io/ninth-digit",
+  "homepage": "https://natnaelh14.github.io/ninth-digit/",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
