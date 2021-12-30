@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ninth-digth/static/css/main.592776f3.css",
-    "main.js": "/ninth-digth/static/js/main.1df94190.js",
-    "static/media/ninth-logo.png": "/ninth-digth/static/media/ninth-logo.3b4f8ce08fee5d41dd53.png",
-    "static/media/SEGA.woff": "/ninth-digth/static/media/SEGA.47b4bfa94ef243af4a5b.woff",
-    "index.html": "/ninth-digth/index.html",
-    "main.592776f3.css.map": "/ninth-digth/static/css/main.592776f3.css.map",
-    "main.1df94190.js.map": "/ninth-digth/static/js/main.1df94190.js.map"
+    "main.css": "/ninth-digit/static/css/main.846417c8.css",
+    "main.js": "/ninth-digit/static/js/main.a1298bf4.js",
+    "static/media/ninth-logo.png": "/ninth-digit/static/media/ninth-logo.3b4f8ce08fee5d41dd53.png",
+    "static/media/SEGA.woff": "/ninth-digit/static/media/SEGA.47b4bfa94ef243af4a5b.woff",
+    "index.html": "/ninth-digit/index.html",
+    "main.846417c8.css.map": "/ninth-digit/static/css/main.846417c8.css.map",
+    "main.a1298bf4.js.map": "/ninth-digit/static/js/main.a1298bf4.js.map"
   },
   "entrypoints": [
-    "static/css/main.592776f3.css",
-    "static/js/main.1df94190.js"
+    "static/css/main.846417c8.css",
+    "static/js/main.a1298bf4.js"
   ]
 }
