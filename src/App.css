@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -7,18 +9,34 @@
   pointer-events: none;
 }
 
+.boxest {
+  box-shadow: 0 9px linear-gradient(rgb(94, 131, 174), transparent);
+  border-radius: 12px;
+  background-color: #9eebce;
+  padding: 0px;
+  min-width: 30%; 
+}
+
+.boxest:hover {
+  color: #f39b8e;
+}
+
+.boxest:active {
+  color: #f39b8e;
+}
+
 *:focus {
   outline: none;
 }
 
-input[type=number]{
+input[type='number'] {
   -moz-appearance: textfield;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
