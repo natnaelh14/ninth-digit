@@ -2,6 +2,7 @@ import React from 'react';
 import Number from '../Number/Number';
 import { sortableContainer, sortableElement } from 'react-sortable-hoc';
 import { arrayMoveImmutable } from 'array-move';
+import { Button, NumberArrangeContainer } from './SearchBox.styles';
 
 const SearchBox = ({ handleSubmit, handleReset, dragNums, setDragNums }) => {
   const SortableGifsContainer = sortableContainer(({ children }) => (
@@ -14,15 +15,7 @@ const SearchBox = ({ handleSubmit, handleReset, dragNums, setDragNums }) => {
     setDragNums(arrayMoveImmutable(dragNums, oldIndex, newIndex));
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginBottom: '1rem',
-      }}
-      className='footer'
-    >
+    <NumberArrangeContainer>
       <SortableGifsContainer
         axis='x'
         onSortEnd={onSortEnd}
@@ -32,33 +25,13 @@ const SearchBox = ({ handleSubmit, handleReset, dragNums, setDragNums }) => {
           <SortableGif index={i} key={i} num={num} />
         ))}
       </SortableGifsContainer>
-      <button
-        className='pv2 ph3 ma3 grow'
-        style={{
-          backgroundColor: '#b39bdc',
-          fontWeight: 'bold',
-          color: 'black',
-          fontSize: '1.5rem',
-          borderRadius: '12px',
-        }}
-        onClick={handleSubmit}
-      >
+      <Button className='pv2 ph3 ma3 grow' onClick={handleSubmit}>
         REARRANGE NUMBER
-      </button>
-      <button
-        className='pv2 ph3 ma3 grow'
-        style={{
-          backgroundColor: '#b39bdc',
-          fontWeight: 'bold',
-          color: 'black',
-          fontSize: '1.5rem',
-          borderRadius: '12px',
-        }}
-        onClick={handleReset}
-      >
+      </Button>
+      <Button className='pv2 ph3 ma3 grow' onClick={handleReset}>
         RESET
-      </button>
-    </div>
+      </Button>
+    </NumberArrangeContainer>
   );
 };
 
