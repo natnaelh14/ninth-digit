@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Grid from './components/Grid/Grid';
 import Header from './components/Header/Header';
-import SearchBox from './components/SearchBox/SearchBox';
+import NumberArrange from './components/NumberArrange/NumberArrange';
 
 const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const App = () => {
@@ -28,7 +28,7 @@ const App = () => {
             ))}
           </Grid>
         </section>
-        <SearchBox
+        <NumberArrange
           handleSubmit={handleSubmit}
           handleReset={handleReset}
           setDragNums={setDragNums}
