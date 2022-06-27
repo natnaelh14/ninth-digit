@@ -3,6 +3,7 @@ import './App.css';
 import Grid from './components/Grid/Grid';
 import Header from './components/Header/Header';
 import NumberArrange from './components/NumberArrange/NumberArrange';
+import { withLDProvider, useFlags } from 'launchdarkly-react-client-sdk';
 
 const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const App = () => {
@@ -14,29 +15,39 @@ const App = () => {
   const handleReset = (e) => {
     setSearchNumber(numbersArray);
   };
+  const { showCards, showHeader, showNumberArrangeAndReset } = useFlags();
 
   return (
     <>
-      <Header />
+      {showHeader && <Header />}
       <div className='App'>
         <section className='grid-container'>
-          <Grid>
-            {searchNumber.map((num, i) => (
-              <li key={num} className='number-grid'>
-                <h2>{num}</h2>
-              </li>
-            ))}
-          </Grid>
+          {showCards && (
+            <Grid>
+              {searchNumber.map((num, i) => (
+                <li key={num} className='number-grid'>
+                  <h2>{num}</h2>
+                </li>
+              ))}
+            </Grid>
+          )}
         </section>
-        <NumberArrange
-          handleSubmit={handleSubmit}
-          handleReset={handleReset}
-          setDragNums={setDragNums}
-          dragNums={dragNums}
-        />
+        {showNumberArrangeAndReset && (
+          <NumberArrange
+            handleSubmit={handleSubmit}
+            handleReset={handleReset}
+            setDragNums={setDragNums}
+            dragNums={dragNums}
+          />
+        )}
       </div>
     </>
   );
 };
 
-export default App;
+export default withLDProvider({
+  clientSideID: process.env.CLIENTSIDEID,
+  options: {
+    bootstrap: 'localStorage',
+  },
+})(App);
