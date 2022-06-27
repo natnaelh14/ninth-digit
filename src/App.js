@@ -46,7 +46,7 @@ const App = () => {
 };
 
 export default withLDProvider({
-  clientSideID: process.env.CLIENTSIDEID,
+  clientSideID: process.env.REACT_APP_CLIENT_SIDE_ID,
   options: {
     bootstrap: 'localStorage',
   },
